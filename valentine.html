@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: red;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://source.unsplash.com/1600x900/?flowers,roses');
+            background-size: cover;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            background-color: pink;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine, Nice Mbeyu?</h1>
+        <button id="yesButton">YES</button>
+    </div>
+    
+    <script>
+        document.getElementById('yesButton').addEventListener('click', function() {
+            // Play the song
+            let audio = new Audio('https://www.youtube.com/watch?v=kPa7bsKwL-c');
+            audio.play();
+
+            // Create balloon explosion effect
+            for (let i = 0; i < 20; i++) {
+                let balloon = document.createElement('div');
+                balloon.style.position = 'absolute';
+                balloon.style.width = '20px';
+                balloon.style.height = '20px';
+                balloon.style.background = 'pink';
+                balloon.style.borderRadius = '50%';
+                balloon.style.left = Math.random() * window.innerWidth + 'px';
+                balloon.style.top = Math.random() * window.innerHeight + 'px';
+                document.body.appendChild(balloon);
+                setTimeout(() => balloon.remove(), 2000);
+            }
+
+            // Generate shareable link
+            let shareLink = window.location.href;
+            let linkElement = document.createElement('p');
+            linkElement.innerHTML = `Share this: <a href="${shareLink}" target="_blank">${shareLink}</a>`;
+            document.body.appendChild(linkElement);
+        });
+    </script>
+</body>
+</html>
